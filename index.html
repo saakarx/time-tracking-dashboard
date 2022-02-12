@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon-32x32.png"
+    />
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- TailwindCSS -->
+    <link rel="stylesheet" href="/style.css" />
+
+    <script defer src="/index.js"></script>
+
+    <title>Time tracking dashboard</title>
+  </head>
+
+  <body
+    class="bg-blue-very-dark text-white text-lg flex justify-center items-center md:min-h-screen"
+  >
+    <main class="px-5 py-20 flex flex-1 gap-6 flex-col lg:flex-row max-w-6xl">
+      <article class="bg-blue-dark rounded-2xl lg:max-w-[275px]">
+        <div
+          class="bg-blue flex gap-4 items-center lg:flex-col lg:items-start px-7 py-6 lg:pb-24 rounded-2xl"
+        >
+          <img
+            class="w-20 object-cover object-center border-4 border-white rounded-full md:mb-5"
+            src="/images/image-jeremy.png"
+            alt="Jeremy Image"
+          />
+          <div>
+            <p class="text-base text-slate-300">Report for</p>
+            <h1 class="text-2xl font-light md:text-5xl md:flex-1">
+              Jeremy Robson
+            </h1>
+          </div>
+        </div>
+        <div
+          class="w-full flex justify-between px-7 py-5 lg:py-7 lg:flex-col lg:items-start lg:gap-3"
+        >
+          <button
+            type="button"
+            data-timeframe="daily"
+            class="time-btn hover:text-white transition-all duration-150"
+          >
+            Daily
+          </button>
+          <button
+            type="button"
+            data-timeframe="weekly"
+            id="active"
+            class="time-btn hover:text-white transition-all duration-150"
+          >
+            Weekly
+          </button>
+          <button
+            type="button"
+            data-timeframe="monthly"
+            class="time-btn hover:text-white transition-all duration-150"
+          >
+            Monthly
+          </button>
+        </div>
+      </article>
+
+      <section
+        class="grid lg:grid-cols-3 lg:grid-rows-2 gap-6 flex-1"
+        id="card-container"
+      >
+        <article
+          id="Work"
+          class="rounded-2xl pt-11 bg-work bg-no-repeat bg-topRight group"
+        >
+          <div
+            class="bg-blue-dark rounded-2xl h-full px-7 py-5 flex flex-col gap-2 justify-between group-hover:brightness-150 group-hover:cursor-pointer"
+          >
+            <div class="flex justify-between">
+              <p class="article-title flex">
+                <span
+                  class="w-11 h-6 bg-blue-desaturated rounded animate-pulse"
+                >
+                </span>
+              </p>
+              <button class="hidden" type="button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div
+              class="flex justify-between items-center gap-2 pb-2 md:flex-col md:items-start"
+            >
+              <h2 class="article-time flex text-3xl font-light md:text-6xl">
+                <span
+                  class="w-16 h-9 bg-blue-desaturated rounded animate-pulse"
+                >
+                </span>
+              </h2>
+              <p class="flex text-base text-slate-300">
+                <span
+                  class="w-32 h-6 bg-blue-desaturated rounded animate-pulse"
+                >
+                </span>
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article
+          id="Play"
+          class="rounded-2xl pt-11 bg-play bg-no-repeat bg-topRight group"
+        >
+          <div
+            class="bg-blue-dark rounded-2xl h-full px-7 py-5 flex flex-col gap-2 justify-between group-hover:brightness-150 group-hover:cursor-pointer"
+          >
+            <div class="flex justify-between">
+              <p class="article-title flex">
+                <span
+                  class="w-11 h-6 bg-blue-desaturated rounded animate-pulse"
+                >
+                </span>
+              </p>
+              <button class="hidden" type="button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div
+              class="flex justify-between items-center gap-2 pb-2 md:flex-col md:items-start"
+            >
+              <h2 class="flex text-3xl font-light md:text-6xl">
+                <span
+                  class="w-16 h-9 bg-blue-desaturated rounded animate-pulse"
+                >
+                </span>
+              </h2>
+              <p class="flex text-base text-slate-300">
+                <span
+                  class="w-32 h-6 bg-blue-desaturated rounded animate-pulse"
+                >
+                </span>
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article
+          id="Study"
+          class="rounded-2xl pt-11 bg-study bg-no-repeat bg-topRight group"
+        >
+          <div
+            class="bg-blue-dark rounded-2xl h-full px-7 py-5 flex flex-col gap-2 justify-between group-hover:brightness-150 group-hover:cursor-pointer"
+          >
+            <div class="flex justify-between">
+              <p class="article-title flex">
+                <span
+                  class="w-11 h-6 bg-blue-desaturated rounded animate-pulse"
+                >
+                </span>
+              </p>
+              <button class="hidden" type="button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div
+              class="flex justify-between items-center gap-2 pb-2 md:flex-col md:items-start"
+            >
+              <h2 class="flex text-3xl font-light md:text-6xl">
+                <span
+                  class="w-16 h-9 bg-blue-desaturated rounded animate-pulse"
+                >
+                </span>
+              </h2>
+              <p class="flex text-base text-slate-300">
+                <span
+                  class="w-32 h-6 bg-blue-desaturated rounded animate-pulse"
+                >
+                </span>
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article
+          id="Exercise"
+          class="rounded-2xl pt-11 bg-exercise bg-no-repeat bg-topRight group"
+        >
+          <div
+            class="bg-blue-dark rounded-2xl h-full px-7 py-5 flex flex-col gap-2 justify-between group-hover:brightness-150 group-hover:cursor-pointer"
+          >
+            <div class="flex justify-between">
+              <p class="article-title flex">
+                <span
+                  class="w-11 h-6 bg-blue-desaturated rounded animate-pulse"
+                >
+                </span>
+              </p>
+              <button class="hidden" type="button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div
+              class="flex justify-between items-center gap-2 pb-2 md:flex-col md:items-start"
+            >
+              <h2 class="flex text-3xl font-light md:text-6xl">
+                <span
+                  class="w-16 h-9 bg-blue-desaturated rounded animate-pulse"
+                >
+                </span>
+              </h2>
+              <p class="flex text-base text-slate-300">
+                <span
+                  class="w-32 h-6 bg-blue-desaturated rounded animate-pulse"
+                >
+                </span>
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article
+          id="Social"
+          class="rounded-2xl pt-11 bg-social bg-no-repeat bg-topRight group"
+        >
+          <div
+            class="bg-blue-dark rounded-2xl h-full px-7 py-5 flex flex-col gap-2 justify-between group-hover:brightness-150 group-hover:cursor-pointer"
+          >
+            <div class="flex justify-between">
+              <p class="article-title flex">
+                <span
+                  class="w-11 h-6 bg-blue-desaturated rounded animate-pulse"
+                >
+                </span>
+              </p>
+              <button class="hidden" type="button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div
+              class="flex justify-between items-center gap-2 pb-2 md:flex-col md:items-start"
+            >
+              <h2 class="flex text-3xl font-light md:text-6xl">
+                <span
+                  class="w-16 h-9 bg-blue-desaturated rounded animate-pulse"
+                >
+                </span>
+              </h2>
+              <p class="flex text-base text-slate-300">
+                <span
+                  class="w-32 h-6 bg-blue-desaturated rounded animate-pulse"
+                >
+                </span>
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article
+          id="Self-Care"
+          class="rounded-2xl pt-11 bg-self-care bg-no-repeat bg-topRight group"
+        >
+          <div
+            class="bg-blue-dark rounded-2xl h-full px-7 py-5 flex flex-col gap-2 justify-between group-hover:brightness-150 group-hover:cursor-pointer"
+          >
+            <div class="flex justify-between">
+              <p class="article-title flex">
+                <span
+                  class="w-11 h-6 bg-blue-desaturated rounded animate-pulse"
+                >
+                </span>
+              </p>
+              <button class="hidden" type="button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div
+              class="flex justify-between items-center gap-2 pb-2 md:flex-col md:items-start"
+            >
+              <h2 class="flex text-3xl font-light md:text-6xl">
+                <span
+                  class="w-16 h-9 bg-blue-desaturated rounded animate-pulse"
+                >
+                </span>
+              </h2>
+              <p class="flex text-base text-slate-300">
+                <span
+                  class="w-32 h-6 bg-blue-desaturated rounded animate-pulse"
+                >
+                </span>
+              </p>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
