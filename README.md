@@ -24,12 +24,12 @@ Users should be able to:
 
 ### Screenshot
 
-![Screenshot](./screenshot.jpg)
+![Screenshot](./screenshot.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- [Solution URL](https://github.com/saakarx/time-tracking-dashboard)
+- [Live Site URL](https://time-tracking-dashboard-saakar.vercel.app/)
 
 ## My process
 
