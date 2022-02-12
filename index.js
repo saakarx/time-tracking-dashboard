@@ -86,7 +86,7 @@ class App {
 
   async fetchData() {
     try {
-      const res = await fetch('./data.json')
+      const res = await fetch('/data.json')
       const data = await res.json()
       this.data = data
       this.isLoading = false
